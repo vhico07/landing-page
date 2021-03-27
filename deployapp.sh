@@ -13,6 +13,7 @@ while [[ ! $answered ]]; do
         git merge master
         git push origin staging
         git checkout master
+        exit 1
     elif [[ $answer = [Nn] ]]; then
         answered="no"
     fi
