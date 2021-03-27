@@ -12,9 +12,6 @@ while [[ ! $answered ]]; do
         git checkout staging
         git merge master
         git push origin staging
-        git checkout prod
-        git merge staging
-        git push prod
         git checkout master
     elif [[ $answer = [Nn] ]]; then
         answered="no"
