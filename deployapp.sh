@@ -3,13 +3,7 @@
 development=$(git branch | grep development )
 staging=$(git branch | grep staging ) 
 
-if [[ -z $development ]] || [[ -z $staging ]]; then
-    echo "create branch staging"
-    git branch staging
-    echo "checkout to staging"
-    git checkout staging
-    git merge master
-    git push origin staging
+if [[ -z $development ]] then
     echo "create branch development"
     git branch development
     echo "checkout to development"
@@ -21,6 +15,13 @@ if [[ -z $development ]] || [[ -z $staging ]]; then
     echo "checkout to master again"
     git checkout master
 fi 
+
+if [[ -z $staging ]]; then
+    git branch staging
+    git merge master
+    git push staging
+    git checkout master
+fi
 
 echo "Make sure your code is tested!, the next step it'll deploy to STAGING and build in PROD automaticly"
 
