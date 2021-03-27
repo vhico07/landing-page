@@ -17,4 +17,4 @@ while [[ ! $answered ]]; do
     fi
 done
 
-printf "\n%s\n" $answered
+# printf "\n%s\n" $answered
