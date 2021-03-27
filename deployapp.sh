@@ -20,7 +20,6 @@ if [[ -z $development ]] || [[ -z $staging ]]; then
     git push origin development
     echo "checkout to master again"
     git checkout master
-    exit 1
 fi 
 
 echo "Make sure your code is tested!, the next step it'll deploy to STAGING and build in PROD automaticly"
@@ -41,5 +40,5 @@ while [[ ! $answered ]]; do
         answered="no"
     fi
 done
-
+exit 1
 # printf "\n%s\n" $answered
