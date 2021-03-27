@@ -9,13 +9,18 @@ echo -n "ARE you sure (Y/N)?"
 answered=
 
 if [[ -z $development ]]; then
+    echo "create branch development"
     git branch development
-else 
+    echo "checkout to development"
     git checkout development
+    echo "merge from master"
     git merge master
+    echo "push to development"
     git push origin development
+    echo "checkout to master again"
     git checkout master
-fi     
+    exit 1
+fi 
 
 while [[ ! $answered ]]; do
     read -r -n 1 answer
