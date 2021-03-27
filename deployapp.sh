@@ -2,12 +2,6 @@
 
 development=$(git branch | grep development ) 
 
-echo "Make sure your code is tested!, the next step it'll deploy to staging and build in prod automaticly"
-
-echo -n "ARE you sure (Y/N)?"
-
-answered=
-
 if [[ -z $development ]]; then
     echo "create branch development"
     git branch development
@@ -21,6 +15,12 @@ if [[ -z $development ]]; then
     git checkout master
     exit 1
 fi 
+
+echo "Make sure your code is tested!, the next step it'll deploy to staging and build in prod automaticly"
+
+echo -n "ARE you sure (Y/N)?"
+
+answered=
 
 while [[ ! $answered ]]; do
     read -r -n 1 answer
