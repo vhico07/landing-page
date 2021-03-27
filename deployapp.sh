@@ -16,7 +16,7 @@ if [[ -z $development ]]; then
     exit 1
 fi 
 
-echo "Make sure your code is tested!, the next step it'll deploy to staging and build in prod automaticly"
+echo "Make sure your code is tested!, the next step it'll deploy to STAGING and build in PROD automaticly"
 
 echo -n "ARE you sure (Y/N)?"
 
