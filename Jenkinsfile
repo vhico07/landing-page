@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             when {
-                tag 'stage*'
+                tag 'stage'
             }
             steps {
                 sh 'docker build -t kovhico/landingpage-stg:$BUILD_NUMBER .'
