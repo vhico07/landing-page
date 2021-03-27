@@ -1,14 +1,21 @@
 #!/bin/bash
 
-development=$(git branch | grep development ) 
+development=$(git branch | grep development )
+staging=$(git branch | grep staging ) 
 
-if [[ -z $development ]]; then
+if [[ -z $development ]] || [[ -z $staging ]]; then
+    echo "create branch staging"
+    git branch staging
+    echo "checkout to staging"
+    git checkout staging
+    git merge master
+    git push origin staging
     echo "create branch development"
     git branch development
     echo "checkout to development"
     git checkout development
-    echo "merge from master"
-    git merge master
+    echo "merge from staging"
+    git merge staging
     echo "push to development"
     git push origin development
     echo "checkout to master again"
