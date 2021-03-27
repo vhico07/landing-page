@@ -3,7 +3,7 @@
 development=$(git branch | grep development )
 staging=$(git branch | grep staging ) 
 
-if [[ -z $development ]] then
+if [[ -z $development ]]; then
     echo "create branch development"
     git branch development
     echo "checkout to development"
